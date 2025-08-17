@@ -1,10 +1,25 @@
+import { useEffect, useRef, useState } from "react";
 import { PostCard } from "../Components"
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 export const HomePage = () => {
-  const posts=[
-    {id:1,title:"loremidhdk",description:"fhusdj isfdgfs sfhsihdfsd dsihidhadsaifgiwf dcdishcish",author:"kavin"},
-    {id:2,title:"loremidhdk",description:"fhusdj isfdgfs sfhsihdfsd dsihidhadsaifgiwf dcdishcish",author:"kavin"}
-  ]
+
+  const [posts, setPosts] = useState([]);
+   const [toggle, setToggle] = useState(false);
+  const postsRef = useRef(collection(db, "posts"));
+  useEffect(() => {
+    async function getPosts(){
+      const data = await getDocs(postsRef.current);
+      setPosts(data.docs.map((document) => (
+        {...document.data(), id: document.id}
+        )
+      ));
+    }
+    getPosts();
+  }, [postsRef, toggle]);
+
+
   return(
       <section>
       { posts.map((post) => (
