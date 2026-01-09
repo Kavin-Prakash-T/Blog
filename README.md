@@ -105,18 +105,6 @@ blog/
 ### Custom Hooks
 - **useTitle**: Dynamically updates page title
 
-## 🧪 Testing
-
-Run tests with:
-```bash
-npm test
-```
-
-Testing libraries included:
-- Jest DOM
-- React Testing Library
-- User Event Testing
-
 ## 📦 Dependencies
 
 Key dependencies:
