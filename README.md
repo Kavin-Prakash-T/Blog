@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# React Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, full-featured blog application built with React and Firebase. Users can create, view, and manage blog posts with real-time data synchronization.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Create Posts**: Authenticated users can create new blog posts with titles and descriptions
+- **View Posts**: Browse all blog posts on the home page
+- **Firebase Integration**: Real-time database with Firestore for post storage
+- **User Authentication**: Firebase Authentication for user management
+- **Protected Routes**: Secure routes that require authentication
+- **Responsive Design**: Mobile-friendly interface
+- **Loading Skeletons**: Smooth loading experience with skeleton screens
+- **Dynamic Page Titles**: Custom page titles using custom hooks
+- **Netlify Ready**: Pre-configured for Netlify deployment
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React 19.1.1
+- **Routing**: React Router DOM v6.30.1
+- **Backend**: Firebase 9.23.0 (Firestore & Authentication)
+- **UI Components**: React Loading Skeleton
+- **Deployment**: Netlify
+- **Testing**: Jest & React Testing Library
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```
+blog/
+├── public/              # Static files
+├── src/
+│   ├── Components/      # Reusable UI components
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   ├── PostCard.js
+│   │   └── SkeletonCard.js
+│   ├── Pages/           # Page components
+│   │   ├── HomePage.js
+│   │   ├── CreatePost.js
+│   │   └── PageNotFound.js
+│   ├── Routes/          # Route configuration
+│   │   ├── AllRoutes.js
+│   │   └── ProtectedRoutes.js
+│   ├── Hooks/           # Custom React hooks
+│   │   └── useTitle.js
+│   ├── firebase/        # Firebase configuration
+│   │   └── config.js
+│   ├── assets/          # Images and static assets
+│   ├── App.js
+│   └── index.js
+├── netlify.toml         # Netlify configuration
+└── package.json
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔧 Installation
 
-### `npm run build`
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd blog
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Configure Firebase**
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Firestore Database
+   - Enable Authentication (Email/Password or other providers)
+   - Copy your Firebase configuration
+   - Update `src/firebase/config.js` with your credentials:
+   ```javascript
+   // Example config structure
+   const firebaseConfig = {
+     apiKey: "YOUR_API_KEY",
+     authDomain: "YOUR_AUTH_DOMAIN",
+     projectId: "YOUR_PROJECT_ID",
+     storageBucket: "YOUR_STORAGE_BUCKET",
+     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+     appId: "YOUR_APP_ID"
+   };
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm run eject`
+## 🎨 Features in Detail
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Components
+- **Header**: Navigation and app branding
+- **Footer**: Footer information
+- **PostCard**: Displays individual blog posts
+- **SkeletonCard**: Loading placeholder
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pages
+- **HomePage**: Displays all blog posts
+- **CreatePost**: Form to create new posts (protected route)
+- **PageNotFound**: 404 error page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Custom Hooks
+- **useTitle**: Dynamically updates page title
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧪 Testing
 
-## Learn More
+Run tests with:
+```bash
+npm test
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Testing libraries included:
+- Jest DOM
+- React Testing Library
+- User Event Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📦 Dependencies
 
-### Code Splitting
+Key dependencies:
+- `react` & `react-dom`: UI library
+- `react-router-dom`: Client-side routing
+- `firebase`: Backend services
+- `react-loading-skeleton`: Loading animations
+- `react-scripts`: Build tooling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 👤 Author
 
-### Analyzing the Bundle Size
+Created with ❤️ using React and Firebase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
